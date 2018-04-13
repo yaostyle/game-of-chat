@@ -14,6 +14,19 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+    
+        let inputsContainerView = UIView()
+        inputsContainerView.backgroundColor = UIColor.white
+        view.addSubview(inputsContainerView)
+        
+        //need x,y, width, height contrains
+        inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24)
+        inputsContainerView.heightAnchor.constraint(equalToConstant: 150)
+
+
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
