@@ -12,6 +12,7 @@
 		A90A772E2080732900139AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A772C2080732900139AF2 /* Main.storyboard */; };
 		A90A77302080732B00139AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90A772F2080732B00139AF2 /* Assets.xcassets */; };
 		A90A77332080732B00139AF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A90A77312080732B00139AF2 /* LaunchScreen.storyboard */; };
+		A90A773C2080788700139AF2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A773B2080788700139AF2 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A90A772F2080732B00139AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A90A77322080732B00139AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A90A77342080732B00139AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A90A773B2080788700139AF2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		A90A77272080732900139AF2 /* gameofchat */ = {
 			isa = PBXGroup;
 			children = (
+				A90A773A2080783B00139AF2 /* Controller */,
 				A90A77282080732900139AF2 /* AppDelegate.swift */,
-				A90A772A2080732900139AF2 /* ViewController.swift */,
 				A90A772C2080732900139AF2 /* Main.storyboard */,
 				A90A772F2080732B00139AF2 /* Assets.xcassets */,
 				A90A77312080732B00139AF2 /* LaunchScreen.storyboard */,
 				A90A77342080732B00139AF2 /* Info.plist */,
 			);
 			path = gameofchat;
+			sourceTree = "<group>";
+		};
+		A90A773A2080783B00139AF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A90A772A2080732900139AF2 /* ViewController.swift */,
+				A90A773B2080788700139AF2 /* LoginController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90A772B2080732900139AF2 /* ViewController.swift in Sources */,
+				A90A773C2080788700139AF2 /* LoginController.swift in Sources */,
 				A90A77292080732900139AF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
