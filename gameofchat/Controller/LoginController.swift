@@ -43,9 +43,14 @@ class LoginController: UIViewController {
                 print(error!)
                 return
             }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
             //successfully authenticated user
             let ref = FIRDatabase.database().reference(fromURL: "https://gameofchats-13a31.firebaseio.com")
-            let usersReference = ref.child("users")
+            let usersReference = ref.child("users").child(uid)
             let values = ["name":name, "email":email]
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
