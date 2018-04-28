@@ -28,6 +28,49 @@ class LoginController: UIViewController {
         return button
     }()
     
+    let nameTextField : UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Name"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    let nameSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let emailTextField : UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Email"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    let emailSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let passwordTextField : UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Password"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.isSecureTextEntry = true
+        return tf
+    }()
+    
+    let passwordSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,6 +97,33 @@ class LoginController: UIViewController {
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         inputsContainerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        inputsContainerView.addSubview(nameTextField)
+        inputsContainerView.addSubview(nameSeparatorView)
+        inputsContainerView.addSubview(emailTextField)
+        inputsContainerView.addSubview(emailSeparatorView)
+        inputsContainerView.addSubview(passwordTextField)
+        inputsContainerView.addSubview(passwordSeparatorView)
+        
+        nameTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor).isActive = true
+        nameTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/3).isActive = true
+        
+        nameSeparatorView.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor).isActive = true
+        nameSeparatorView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        nameSeparatorView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        nameSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        emailTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        emailTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        emailTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/3).isActive = true
+        
+        emailSeparatorView.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor).isActive = true
+        emailSeparatorView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor).isActive = true
+        emailSeparatorView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        emailSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
