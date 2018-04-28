@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
 
@@ -19,14 +20,45 @@ class LoginController: UIViewController {
         return view
     }()
     
-    let loginRegisterButton: UIButton = {
+    lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
+        
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        
         return button
     }()
+    
+    @objc func handleRegister() {
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
+            print("Form is not valid")
+            return
+        }
+            
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user:FIRUser?, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            //successfully authenticated user
+            let ref = FIRDatabase.database().reference(fromURL: "https://gameofchats-13a31.firebaseio.com")
+            let usersReference = ref.child("users")
+            let values = ["name":name, "email":email]
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            
+                if err != nil {
+                    print(err!)
+                    return
+                }
+                print("Saved user successfully into Firebase DB")
+                
+            })
+        })
+        print(123)
+    }
     
     let nameTextField : UITextField = {
         let tf = UITextField()
